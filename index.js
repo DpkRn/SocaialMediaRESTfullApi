@@ -21,6 +21,12 @@ app.get('/',(req,res)=>{
     return res.json("working fine")
 })
 app.use(express.json())
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // or specific origin
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
 app.use(helmet())
 app.use(morgan('common'))
 app.use('/api/users',userRoute)
