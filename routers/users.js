@@ -2,6 +2,7 @@ const router=require('express').Router()
 const User=require('../model/User')
 const bcrypt=require('bcrypt')
 
+//get all users
 
 //update profile
 router.put('/:id',async (req,res)=>{
