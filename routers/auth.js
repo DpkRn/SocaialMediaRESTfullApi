@@ -3,12 +3,7 @@ const User=require('../model/User')
 const bcrypt=require('bcrypt')
 
 //register new account or signup
-const error={
-    response:"ok",
-    curruser:{},
-    error:false,
-    errorMessage:""
-}
+
 router.post('/login', async (req,res)=>{
     try{
         const user=await User.findOne({email:req.body.email})
