@@ -8,7 +8,7 @@ router.post('/',async (req,res)=>{
         const post= new Post(req.body)
         const savedPost=await post.save()
         console.log("post created",savedPost)
-        return res.status(201).json("post created")     
+        return res.status(201).json("ok")     
     }catch(err){
         return res.status(408).json(err)
     }

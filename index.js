@@ -21,10 +21,12 @@ app.get('/',(req,res)=>{
     return res.json("working fine")
 })
 app.use(express.json())
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // or specific origin
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE, PUT, PATCH');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Access-Control-Allow-Origin');
+    res.setHeader('Access-Control-Allow-Credentials', 'true'); // If you need credentials like cookies
     next();
   });
 app.use(helmet())
